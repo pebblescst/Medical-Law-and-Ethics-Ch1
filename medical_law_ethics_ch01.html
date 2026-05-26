@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Law &amp; Ethics — Chapter 1</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --indigo:  #3730A3; --indigo-lt:#E0E7FF; --indigo-dk:#1E1B4B;
+    --blue:    #1D4ED8; --blue-lt:  #DBEAFE; --blue-dk:  #1E3A8A;
+    --teal:    #0E7490; --teal-lt:  #CFFAFE; --teal-dk:  #083344;
+    --green:   #166534; --green-lt: #DCFCE7; --green-dk: #052E16;
+    --amber:   #B45309; --amber-lt: #FEF3C7; --amber-dk: #451A03;
+    --coral:   #C2410C; --coral-lt: #FFEDD5; --coral-dk: #431407;
+    --violet:  #6D28D9; --violet-lt:#EDE9FE; --violet-dk:#2E1065;
+    --rose:    #9D174D; --rose-lt:  #FCE7F3; --rose-dk:  #500724;
+    --slate:   #334155; --slate-lt: #F1F5F9; --slate-dk: #0F172A;
+    --red:     #991B1B; --red-lt:   #FEE2E2; --red-dk:   #450A0A;
+    --gray-50: #F9FAFB; --gray-100: #F3F4F6; --gray-200: #E5E7EB;
+    --gray-400:#9CA3AF; --gray-600: #4B5563; --gray-700: #374151; --black:#111827;
+    --font:'DM Sans',sans-serif; --mono:'DM Mono',monospace;
+    --radius:10px; --radius-sm:6px;
+  }
+  body { font-family:var(--font); background:var(--gray-50); color:var(--black); }
+  .module { max-width:860px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+  .module-header { background:var(--indigo-dk); border-radius:var(--radius); padding:1.75rem 2rem; margin-bottom:1.5rem; display:flex; gap:1.5rem; align-items:flex-start; }
+  .header-icon { width:52px; height:52px; border-radius:var(--radius-sm); background:rgba(255,255,255,0.12); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .header-icon svg { width:28px; height:28px; stroke:#fff; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .header-text h1 { font-size:20px; font-weight:600; color:#fff; }
+  .header-text p  { font-size:13px; color:#A5B4FC; margin-top:3px; }
+  .progress-wrap { margin-top:14px; display:flex; align-items:center; gap:10px; }
+  .progress-bg   { flex:1; height:5px; background:rgba(255,255,255,0.2); border-radius:3px; overflow:hidden; }
+  .progress-fill { height:100%; background:#818CF8; border-radius:3px; transition:width 0.5s; width:0%; }
+  .progress-label { font-size:12px; color:#A5B4FC; white-space:nowrap; }
+  .nav-row { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:1.5rem; }
+  .tab { padding:7px 16px; font-size:13px; font-family:var(--font); font-weight:500; border:1px solid var(--gray-200); border-radius:100px; background:#fff; color:var(--gray-600); cursor:pointer; transition:all 0.15s; }
+  .tab:hover  { border-color:var(--indigo); color:var(--indigo); }
+  .tab.active { background:var(--indigo); border-color:var(--indigo); color:#fff; }
+  .section { display:none; }
+  .section.active { display:block; animation:fadeIn 0.2s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
+  .card { background:#fff; border:1px solid var(--gray-200); border-radius:var(--radius); padding:1.25rem 1.5rem; margin-bottom:1rem; }
+  .card-title { font-size:14px; font-weight:600; margin-bottom:12px; }
+  .two-col   { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; }
+  @media(max-width:620px){ .two-col,.three-col { grid-template-columns:1fr } }
+  .badge { font-size:11px; font-weight:600; padding:2px 8px; border-radius:20px; }
+  .badge-indigo { background:var(--indigo-lt); color:var(--indigo-dk); }
+  .badge-blue   { background:var(--blue-lt);   color:var(--blue-dk); }
+  .badge-teal   { background:var(--teal-lt);   color:var(--teal-dk); }
+  .badge-green  { background:var(--green-lt);  color:var(--green-dk); }
+  .badge-amber  { background:var(--amber-lt);  color:var(--amber-dk); }
+  .badge-violet { background:var(--violet-lt); color:var(--violet-dk); }
+  .badge-red    { background:var(--red-lt);    color:var(--red-dk); }
+  .badge-slate  { background:var(--slate-lt);  color:var(--slate-dk); }
+  .badge-coral  { background:var(--coral-lt);  color:var(--coral-dk); }
+  .badge-rose   { background:var(--rose-lt);   color:var(--rose-dk); }
+  .tip { border-radius:var(--radius-sm); padding:10px 14px; font-size:13px; line-height:1.6; margin-top:10px; }
+  .tip.indigo { background:var(--indigo-lt); color:var(--indigo-dk); border-left:3px solid var(--indigo); }
+  .tip.blue   { background:var(--blue-lt);   color:var(--blue-dk);   border-left:3px solid var(--blue); }
+  .tip.teal   { background:var(--teal-lt);   color:var(--teal-dk);   border-left:3px solid var(--teal); }
+  .tip.green  { background:var(--green-lt);  color:var(--green-dk);  border-left:3px solid var(--green); }
+  .tip.amber  { background:var(--amber-lt);  color:var(--amber-dk);  border-left:3px solid var(--amber); }
+  .tip.violet { background:var(--violet-lt); color:var(--violet-dk); border-left:3px solid var(--violet); }
+  .tip.coral  { background:var(--coral-lt);  color:var(--coral-dk);  border-left:3px solid var(--coral); }
+  .tip.red    { background:var(--red-lt);    color:var(--red-dk);    border-left:3px solid var(--red); }
+  .tip.rose   { background:var(--rose-lt);   color:var(--rose-dk);   border-left:3px solid var(--rose); }
+  .tip.slate  { background:var(--slate-lt);  color:var(--slate-dk);  border-left:3px solid var(--slate); }
+  .vs-item { border:1px solid var(--gray-200); border-radius:var(--radius-sm); padding:10px 12px; }
+  .vs-head { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px; }
+  .vs-body { font-size:13px; color:var(--gray-600); line-height:1.5; }
+  .pitem { display:flex; gap:10px; align-items:flex-start; padding:9px 0; border-bottom:1px solid var(--gray-200); }
+  .pitem:last-child { border-bottom:none; padding-bottom:0; }
+  .pitem:first-child { padding-top:0; }
+  .pname { font-size:13.5px; font-weight:600; color:var(--black); }
+  .pdef  { font-size:12.5px; color:var(--gray-600); margin-top:2px; line-height:1.4; }
+  /* Comparison table */
+  .comp-head { display:flex; background:var(--indigo-dk); border-radius:var(--radius-sm) var(--radius-sm) 0 0; }
+  .comp-head div { color:#fff; font-size:12px; font-weight:700; padding:10px 12px; flex:1; border-right:1px solid rgba(255,255,255,0.15); }
+  .comp-head div:first-child { flex:0 0 130px; }
+  .comp-head div:last-child { border-right:none; }
+  .comp-row { display:flex; border-bottom:1px solid var(--gray-100); }
+  .comp-row:last-child { border-bottom:none; }
+  .comp-row.subhead { background:var(--indigo-lt); }
+  .comp-cat { font-size:12px; font-weight:700; flex:0 0 130px; padding:9px 12px; color:var(--indigo-dk); border-right:1px solid var(--gray-200); background:var(--gray-50); }
+  .comp-cell { font-size:12px; color:var(--gray-700); padding:9px 12px; flex:1; border-right:1px solid var(--gray-100); line-height:1.4; }
+  .comp-cell:last-child { border-right:none; }
+  /* Code of ethics list */
+  .code-row { display:flex; gap:10px; align-items:flex-start; padding:8px 0; border-bottom:1px solid var(--gray-100); }
+  .code-row:last-child { border-bottom:none; }
+  .code-num { width:26px; height:26px; border-radius:50%; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:var(--indigo-lt); color:var(--indigo-dk); }
+  .code-text { font-size:13px; color:var(--gray-700); line-height:1.4; }
+  /* Critical thinking steps */
+  .step-card { border-radius:var(--radius-sm); padding:11px 14px; display:flex; gap:12px; align-items:flex-start; margin-bottom:6px; }
+  .step-num  { width:32px; height:32px; border-radius:50%; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; color:#fff; }
+  .step-title { font-size:13.5px; font-weight:700; margin-bottom:3px; }
+  .step-body  { font-size:12.5px; opacity:0.85; line-height:1.4; }
+  /* Ethics check */
+  .check-row { display:flex; gap:10px; align-items:flex-start; padding:9px 0; border-bottom:1px solid var(--gray-200); }
+  .check-row:last-child { border-bottom:none; }
+  .check-q { font-size:18px; flex-shrink:0; color:var(--indigo); font-weight:700; line-height:1; }
+  .check-text { font-size:13px; color:var(--gray-700); line-height:1.5; }
+  /* Quality cards */
+  .qual-card { border-radius:var(--radius-sm); padding:12px 14px; border:1px solid var(--gray-200); }
+  .qual-icon  { font-size:26px; margin-bottom:6px; }
+  .qual-title { font-size:13px; font-weight:700; margin-bottom:4px; }
+  .qual-body  { font-size:12px; color:var(--gray-600); line-height:1.5; }
+  /* Lit term row */
+  .lit-row { display:flex; gap:10px; align-items:flex-start; padding:9px 0; border-bottom:1px solid var(--gray-200); }
+  .lit-row:last-child { border-bottom:none; }
+  .lit-term { font-family:var(--mono); font-size:13px; font-weight:600; min-width:150px; color:var(--indigo-dk); flex-shrink:0; padding-top:1px; }
+  .lit-def  { font-size:13px; color:var(--gray-600); line-height:1.5; }
+  /* Flashcards */
+  .fc-nav { display:flex; align-items:center; gap:12px; margin-bottom:1rem; }
+  .fc-counter { font-size:13px; color:var(--gray-400); flex:1; text-align:center; }
+  .fc-btn { width:36px; height:36px; border:1px solid var(--gray-200); border-radius:50%; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--gray-600); font-size:16px; transition:all 0.15s; }
+  .fc-btn:hover { border-color:var(--indigo); color:var(--indigo); }
+  .flip-wrap { perspective:1000px; height:170px; cursor:pointer; user-select:none; }
+  .flip-inner { width:100%; height:100%; position:relative; transform-style:preserve-3d; transition:transform 0.5s cubic-bezier(.4,0,.2,1); }
+  .flip-inner.flipped { transform:rotateY(180deg); }
+  .flip-front,.flip-back { position:absolute; inset:0; backface-visibility:hidden; border-radius:var(--radius); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.5rem; text-align:center; border:1px solid var(--gray-200); }
+  .flip-front { background:#fff; }
+  .flip-back  { background:var(--indigo-lt); border-color:#A5B4FC; transform:rotateY(180deg); }
+  .flip-term { font-size:20px; font-weight:600; color:var(--black); line-height:1.3; }
+  .flip-hint { font-size:11px; color:var(--gray-400); margin-top:6px; text-transform:uppercase; letter-spacing:0.06em; }
+  .flip-def  { font-size:14px; font-weight:600; color:var(--indigo-dk); line-height:1.4; }
+  .flip-ex   { font-size:12px; color:var(--indigo); margin-top:6px; line-height:1.4; }
+  .fc-shuffle { padding:6px 14px; font-size:12px; font-family:var(--font); border:1px solid var(--gray-200); border-radius:100px; background:#fff; color:var(--gray-600); cursor:pointer; margin-left:auto; display:block; margin-bottom:10px; }
+  .fc-shuffle:hover { border-color:var(--indigo); color:var(--indigo); }
+  .quiz-progress { display:flex; gap:4px; flex-wrap:wrap; margin-bottom:1.25rem; }
+  .q-dot { width:10px; height:10px; border-radius:50%; background:var(--gray-200); }
+  .q-dot.pass { background:var(--indigo); }
+  .q-dot.fail { background:#E24B4A; }
+  .quiz-q-text { font-size:16px; font-weight:600; margin-bottom:1rem; line-height:1.5; }
+  .quiz-opts { display:flex; flex-direction:column; gap:8px; margin-bottom:1rem; }
+  .q-opt { padding:11px 16px; border:1px solid var(--gray-200); border-radius:var(--radius-sm); background:#fff; font-size:14px; font-family:var(--font); cursor:pointer; text-align:left; transition:all 0.15s; }
+  .q-opt:hover:not(:disabled) { border-color:var(--indigo); background:var(--indigo-lt); }
+  .q-opt.correct { background:var(--green-lt); border-color:var(--green); color:var(--green-dk); font-weight:500; }
+  .q-opt.wrong   { background:#FCEBEB; border-color:#E24B4A; color:#501313; }
+  .q-fb { font-size:13px; padding:9px 14px; border-radius:var(--radius-sm); margin-bottom:1rem; }
+  .q-fb.correct { background:var(--green-lt); color:var(--green-dk); }
+  .q-fb.wrong   { background:#FCEBEB; color:#501313; }
+  .quiz-next { padding:9px 20px; font-size:13px; font-family:var(--font); font-weight:500; border:1px solid var(--gray-200); border-radius:100px; background:#fff; cursor:pointer; }
+  .score-wrap { text-align:center; padding:2rem 0 1rem; }
+  .score-big { font-size:52px; font-weight:700; line-height:1; }
+  .score-big.great { color:var(--indigo); }
+  .score-big.ok    { color:var(--amber); }
+  .score-big.retry { color:#E24B4A; }
+  .score-msg { font-size:15px; color:var(--gray-600); margin-top:8px; margin-bottom:1.5rem; }
+  .retry-btn { padding:10px 24px; font-size:14px; font-family:var(--font); font-weight:500; border:1px solid var(--indigo); border-radius:100px; background:var(--indigo-lt); color:var(--indigo-dk); cursor:pointer; transition:all 0.15s; }
+  .retry-btn:hover { background:var(--indigo); color:#fff; }
+</style>
+</head>
+<body>
+<div class="module">
+
+  <div class="module-header">
+    <div class="header-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div style="flex:1">
+      <div class="header-text">
+        <h1>Law &amp; Ethics for Health Professions — Chapter 1</h1>
+        <p>Introduction to Law and Ethics &nbsp;·&nbsp; Judson, Harrison &amp; Albright, 10th Ed. &nbsp;·&nbsp; 6 sections &nbsp;·&nbsp; 20 flashcards &nbsp;·&nbsp; 10-question quiz</p>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bg"><div class="progress-fill" id="prog-fill"></div></div>
+        <div class="progress-label" id="prog-label">0%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-row" role="tablist">
+    <button class="tab active" onclick="showSec('overview',this)">Overview</button>
+    <button class="tab" onclick="showSec('definitions',this)">Law, ethics &amp; values</button>
+    <button class="tab" onclick="showSec('litigation',this)">Litigation &amp; liability</button>
+    <button class="tab" onclick="showSec('codes',this)">Codes of ethics</button>
+    <button class="tab" onclick="showSec('success',this)">Success qualities</button>
+    <button class="tab" onclick="showSec('critical',this)">Critical thinking</button>
+    <button class="tab" onclick="showSec('flashcards',this)">Flashcards</button>
+    <button class="tab" onclick="showSec('quiz',this)">Quiz</button>
+  </div>
+
+  <!-- ════════ OVERVIEW ════════ -->
+  <div class="section active" id="sec-overview">
+    <div class="card">
+      <div class="card-title" style="color:var(--indigo)">Chapter 1 — Learning Outcomes</div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:12px">
+        <div class="vs-item"><div class="vs-head" style="color:var(--indigo)">1.1 — Why study law and ethics?</div><div class="vs-body">Explain why knowledge of law and ethics is important to healthcare practitioners — for professional competence and legal self-protection in a litigious society</div></div>
+        <div class="vs-item"><div class="vs-head" style="color:var(--blue)">1.2 — Core definitions</div><div class="vs-body">Define law, ethics, and moral values as used in healthcare, and compare them with related concepts: bioethics, etiquette, and protocol</div></div>
+        <div class="vs-item"><div class="vs-head" style="color:var(--teal)">1.3 — Qualities for success</div><div class="vs-body">Discuss the characteristics and skills most likely to lead to a successful healthcare career: courtesy, compassion, common sense, people skills, technical skills, and critical thinking</div></div>
+      </div>
+      <div class="tip indigo"><strong>Chapter purpose:</strong> Chapter 1 establishes the foundational vocabulary and conceptual framework for the entire course. Every subsequent chapter builds on the definitions, distinctions, and professional standards introduced here.</div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title" style="color:var(--teal)">Why Study Law and Ethics?</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div class="vs-item" style="border-color:var(--teal)">
+            <div class="vs-head" style="color:var(--teal)">Professional excellence</div>
+            <div class="vs-body">To help you function at the <strong>highest possible professional level</strong>, providing competent, ethical, lawful healthcare to patients. Knowledge of law and ethics is not optional — it is a core professional competency.</div>
+          </div>
+          <div class="vs-item" style="border-color:var(--amber)">
+            <div class="vs-head" style="color:var(--amber)">Legal self-protection</div>
+            <div class="vs-body">To help you <strong>avoid legal entanglements</strong> that can threaten your ability to earn a living. A single lawsuit or license revocation can end a healthcare career — even if the practitioner was not at fault.</div>
+          </div>
+          <div class="vs-item" style="border-color:var(--red)">
+            <div class="vs-head" style="color:var(--red)">Litigious society</div>
+            <div class="vs-body">We live in a <strong>litigious society</strong> — patients, relatives, and others are inclined to sue healthcare practitioners, facilities, equipment manufacturers, and others when medical outcomes are unacceptable. Healthcare professionals must understand their legal exposure.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--violet)">Focus Areas of Law &amp; Ethics in Healthcare</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div class="vs-item">
+            <div class="vs-head" style="color:var(--violet)">Rights, responsibilities &amp; concerns of consumers</div>
+            <div class="vs-body">What healthcare consumers (patients) are legally entitled to — including informed consent, privacy, non-discrimination, and quality of care. Their responsibilities as partners in care.</div>
+          </div>
+          <div class="vs-item">
+            <div class="vs-head" style="color:var(--blue)">Legal and ethical issues facing society</div>
+            <div class="vs-body">From end-of-life decisions to genetic privacy to reproductive rights — healthcare intersects with some of society's most contested ethical and legal debates. Practitioners must navigate these thoughtfully.</div>
+          </div>
+          <div class="vs-item">
+            <div class="vs-head" style="color:var(--amber)">Impact of rising costs</div>
+            <div class="vs-body">Cost constraints shape healthcare delivery decisions in ways that create legal and ethical tensions — rationing, insurance denials, resource allocation, and access disparities all have law and ethics dimensions.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ DEFINITIONS ════════ -->
+  <div class="section" id="sec-definitions">
+    <div class="card">
+      <div class="card-title" style="color:var(--indigo)">Comprehensive Comparison: Law, Ethics, Moral Values, Bioethics, Etiquette &amp; Protocol</div>
+      <div style="border:1px solid var(--gray-200);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:10px">
+        <div class="comp-head">
+          <div style="flex:0 0 130px">Concept</div>
+          <div>Definition</div>
+          <div>Main Purpose</div>
+          <div>Standards</div>
+          <div>Penalty for Violation</div>
+        </div>
+        <!-- Law -->
+        <div class="comp-row">
+          <div class="comp-cat" style="color:var(--red-dk);background:var(--red-lt)">⚖️ Law</div>
+          <div class="comp-cell">Set of governing rules formally recognized as binding by a controlling authority</div>
+          <div class="comp-cell">To <strong>protect the public</strong>; maintain minimum order in society</div>
+          <div class="comp-cell">Minimal — promotes smooth functioning of society</div>
+          <div class="comp-cell">Civil or criminal liability; fines, imprisonment, license revocation</div>
+        </div>
+        <!-- Ethics -->
+        <div class="comp-row">
+          <div class="comp-cat" style="color:var(--blue-dk);background:var(--blue-lt)">🌟 Ethics</div>
+          <div class="comp-cell">Principles, standards, and guide to conduct — right vs. wrong</div>
+          <div class="comp-cell">To <strong>elevate the standard of competence</strong> within a profession</div>
+          <div class="comp-cell">Builds values and ideals above the legal minimum</div>
+          <div class="comp-cell">Suspension or eviction from professional society, as decided by peers</div>
+        </div>
+        <!-- Moral Values -->
+        <div class="comp-row">
+          <div class="comp-cat" style="color:var(--violet-dk);background:var(--violet-lt)">💭 Moral Values</div>
+          <div class="comp-cell">Beliefs formed through influence of family, culture, and society</div>
+          <div class="comp-cell">To <strong>serve as guide for personal ethical conduct</strong></div>
+          <div class="comp-cell">Serves as basis for forming a personal code of ethics</div>
+          <div class="comp-cell">Difficulty getting along with others; social disapproval</div>
+        </div>
+        <!-- Bioethics -->
+        <div class="comp-row">
+          <div class="comp-cat" style="color:var(--green-dk);background:var(--green-lt)">🔬 Bioethics</div>
+          <div class="comp-cell">Discipline relating to ethics concerning biological research, especially as applied to medicine</div>
+          <div class="comp-cell">To allow <strong>scientific progress in a manner that benefits society</strong></div>
+          <div class="comp-cell">Leads to highest standards in applying research to medical care</div>
+          <div class="comp-cell">Can include all law, ethics, etiquette penalties; evolves as new standards emerge</div>
+        </div>
+        <!-- Etiquette -->
+        <div class="comp-row">
+          <div class="comp-cat" style="color:var(--amber-dk);background:var(--amber-lt)">🤝 Etiquette</div>
+          <div class="comp-cell">Standards of behavior considered good manners; courtesy</div>
+          <div class="comp-cell">To <strong>enable one to get along with others</strong></div>
+          <div class="comp-cell">Leads to pleasant interaction with peers and patients</div>
+          <div class="comp-cell">Ostracism from chosen social or professional groups</div>
+        </div>
+        <!-- Protocol -->
+        <div class="comp-row">
+          <div class="comp-cat" style="color:var(--teal-dk);background:var(--teal-lt)">📋 Protocol</div>
+          <div class="comp-cell">Rules of etiquette applicable to one's place of employment</div>
+          <div class="comp-cell">To <strong>enable professional interaction</strong> within the workplace</div>
+          <div class="comp-cell">Promotes smooth functioning of workplace routines</div>
+          <div class="comp-cell">Disapproval from professional colleagues; possible loss of business</div>
+        </div>
+      </div>
+      <div class="tip indigo"><strong>Critical distinction:</strong> Law sets the <em>floor</em> (minimum required conduct). Ethics builds above the floor toward ideal conduct. Moral values are the personal foundation that ethics is built on. Bioethics applies ethical reasoning to medicine and biological research. Etiquette and protocol govern professional courtesy and workplace manners respectively.</div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title" style="color:var(--red)">Law — Detailed</div>
+        <div style="font-size:13px;color:var(--gray-600);line-height:1.9;margin-bottom:10px">
+          <strong style="color:var(--black)">Definition:</strong> A rule of conduct or action <strong>formally recognized as binding</strong> by a controlling authority (government). Law is not a suggestion — it is compulsory and enforced through the power of the state.<br><br>
+          <strong style="color:var(--black)">Purpose:</strong> Establishes the <strong>minimum standard</strong> necessary to keep society functioning. Law does not demand ethical excellence — only baseline compliance.<br><br>
+          <strong style="color:var(--black)">Enforcement:</strong> Made possible by penalties for disobedience — fines, imprisonment, or both. In healthcare, penalties also include <strong>revocation of professional license</strong>, which can permanently end a career.
+        </div>
+        <div class="tip red"><strong>Key insight:</strong> A healthcare professional can act <em>legally</em> but <em>unethically</em> — or <em>ethically</em> but run afoul of a specific regulation. Law and ethics overlap but are not identical. Understanding both is essential.</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--blue)">Ethics — Detailed</div>
+        <div style="font-size:13px;color:var(--gray-600);line-height:1.9;margin-bottom:10px">
+          <strong style="color:var(--black)">Definition:</strong> Standards of behavior and the concept of <strong>right and wrong</strong> — going beyond legal minimum toward ideals of good conduct.<br><br>
+          <strong style="color:var(--black)">Foundation:</strong> Moral values formed through the influence of <strong>family, culture, and society</strong> serve as the basis for ethical conduct. Ethics builds on these personal values, then applies them to professional standards.<br><br>
+          <strong style="color:var(--black)">Bioethics:</strong> A specialized discipline dealing with the <strong>ethical implications of biological research and medicine</strong>. Bioethicists (medical ethicists) consult with medical professionals to help navigate difficult decisions — end-of-life care, experimental treatment, genetic engineering, organ allocation.
+        </div>
+        <div class="tip blue"><strong>Ethics committees:</strong> Found primarily in hospital settings. Members include physicians, nurses, social workers, clergy, family members, community representatives, and others. Purpose: determine possible solutions to difficult, multi-dimensional healthcare ethical issues.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ LITIGATION & LIABILITY ════════ -->
+  <div class="section" id="sec-litigation">
+    <div class="card">
+      <div class="card-title" style="color:var(--amber)">Litigation Terminology — Key Definitions</div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div class="lit-row">
+          <div class="lit-term">Plaintiff</div>
+          <div class="lit-def">The person bringing charges in a lawsuit; the party who files the legal action claiming to have been harmed by the defendant. In medical malpractice cases, usually the patient (or their estate).</div>
+        </div>
+        <div class="lit-row">
+          <div class="lit-term">Defendant</div>
+          <div class="lit-def">The person against whom charges are brought; the party sued. In medical malpractice cases, usually the healthcare provider, facility, or product manufacturer.</div>
+        </div>
+        <div class="lit-row">
+          <div class="lit-term">Liable</div>
+          <div class="lit-def">Legally responsible or obligated. A liable party is found by a court to be responsible for harm and may be required to pay damages or face other penalties.</div>
+        </div>
+        <div class="lit-row">
+          <div class="lit-term">Precedent</div>
+          <div class="lit-def">Decisions made by judges in various courts that become the rule of law and apply to future cases with similar facts. Also called <strong>case law</strong> or <strong>common law</strong>. Once established, lower courts within the same jurisdiction must follow the precedent (stare decisis — "let the decision stand").</div>
+        </div>
+        <div class="lit-row" style="border-bottom:none">
+          <div class="lit-term">Summary judgment</div>
+          <div class="lit-def">A decision made by a court that there is no genuine dispute of material fact and the case does not need to go to trial. One party is entitled to judgment as a matter of law. Granted when the evidence is so one-sided that no reasonable jury could decide differently.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color:var(--coral)">Product Liability in Healthcare</div>
+      <div class="tip coral" style="margin-bottom:12px">Manufacturers of healthcare equipment and product dealers can be held legally responsible for defective medical devices and products. This is called <strong>product liability</strong> — an important area of healthcare law distinct from medical malpractice.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+        <div class="vs-item" style="border-color:var(--coral)">
+          <div class="vs-head" style="color:var(--coral)">Breach of warranty</div>
+          <div class="vs-body">The product does not perform as promised. An expressed warranty (written/verbal promise) or implied warranty (expectation of basic safety and fitness for use) has been violated. Example: a surgical implant marketed as permanent fails prematurely.</div>
+        </div>
+        <div class="vs-item" style="border-color:var(--amber)">
+          <div class="vs-head" style="color:var(--amber)">Untrue statements</div>
+          <div class="vs-body">Misrepresentations made about the product's safety, effectiveness, or characteristics — whether in advertising, labeling, or direct communication to healthcare providers or patients.</div>
+        </div>
+        <div class="vs-item" style="border-color:var(--red)">
+          <div class="vs-head" style="color:var(--red)">Defective products</div>
+          <div class="vs-body">Products with a manufacturing defect (something went wrong in production), design defect (the entire design is inherently unsafe), or a failure to warn (inadequate instructions or warnings about known risks).</div>
+        </div>
+        <div class="vs-item" style="border-color:var(--violet)">
+          <div class="vs-head" style="color:var(--violet)">Fraud</div>
+          <div class="vs-body">Intentional deceit — knowingly misrepresenting a product to induce purchase or use. Fraud is both a civil and criminal matter. In healthcare, fraud carries particularly severe penalties including exclusion from federal healthcare programs.</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div class="vs-item" style="border-color:var(--slate)">
+          <div class="vs-head" style="color:var(--slate)">Medtronic case — federal preemption of medical devices</div>
+          <div class="vs-body">Makers of medical equipment are generally <strong>immune from personal injury liability</strong> if the FDA approved the product and it meets FDA specifications. The extent of this immunity has evolved — a 2008 U.S. Supreme Court ruling in <em>Medtronic, Inc. v. Riegel</em> held that FDA pre-market approval preempts most state tort claims for Class III medical devices. This creates a significant shield for device manufacturers.</div>
+        </div>
+        <div class="vs-item" style="border-color:var(--teal)">
+          <div class="vs-head" style="color:var(--teal)">Wyeth v. Levine (2009) — drug label liability</div>
+          <div class="vs-body"><strong>Federal preemption doctrine</strong> can bar injured consumers from suing in state court when products met federal standards. However, <em>Wyeth v. Levine</em> (2009) became an important precedent for future drug labeling cases — the Supreme Court held that federal drug labeling requirements do NOT automatically preempt state failure-to-warn claims, meaning pharmaceutical companies can face state lawsuits even if their label met FDA requirements. This creates important contrast with the Medtronic ruling for device makers.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ CODES OF ETHICS ════════ -->
+  <div class="section" id="sec-codes">
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title" style="color:var(--slate)">Early Medical Codes of Ethics</div>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:12px">
+          <div class="vs-item" style="border-color:var(--amber)">
+            <div class="vs-head" style="color:var(--amber)">Code of Hammurabi (~1754 BCE)</div>
+            <div class="vs-body">One of the oldest written legal codes; included specific provisions governing physicians, including standards of care and specific penalties for medical errors. Established the principle that practitioners are accountable for their work.</div>
+          </div>
+          <div class="vs-item" style="border-color:var(--indigo)">
+            <div class="vs-head" style="color:var(--indigo)">Hippocratic Oath (~400 BCE)</div>
+            <div class="vs-body">A pledge for physicians influenced by the practices of the Greek physician Hippocrates. Established foundational principles still reflected in modern medical ethics: benefit patients, do no harm, maintain confidentiality, refer when beyond competence, and treat all patients honorably. The phrase "First, do no harm" (<em>primum non nocere</em>) derives from Hippocratic tradition.</div>
+          </div>
+          <div class="vs-item" style="border-color:var(--teal)">
+            <div class="vs-head" style="color:var(--teal)">Percival's Medical Ethics (1803)</div>
+            <div class="vs-body">Thomas Percival's <em>Medical Ethics</em> was the first systematic modern code of medical ethics. It influenced the American Medical Association's first code of ethics in 1847 and established the template for professional medical codes that followed.</div>
+          </div>
+        </div>
+        <div class="tip amber"><strong>Historical significance:</strong> These three documents show that the need to regulate medical practice ethically has existed for nearly 4,000 years. The Hippocratic tradition remains the moral foundation of contemporary medical ethics codes.</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--blue)">Contemporary Codes of Ethics</div>
+        <div class="tip blue" style="margin-bottom:12px">Modern professional codes of ethics share four common characteristics.</div>
+        <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:14px">
+          <div class="vs-item"><div class="vs-head" style="color:var(--blue)">Established by the appropriate professional organization</div><div class="vs-body">Each healthcare profession has its own organization that creates and maintains the code specific to that discipline (AMA for physicians, AAMA for medical assistants, etc.)</div></div>
+          <div class="vs-item"><div class="vs-head" style="color:var(--teal)">Govern the behavior of members</div><div class="vs-body">The code sets behavioral expectations for all members of that professional organization; members agree to be bound by it upon joining</div></div>
+          <div class="vs-item"><div class="vs-head" style="color:var(--green)">Increase competence and standards of care</div><div class="vs-body">By defining ethical conduct, codes raise the overall standard of practice within the profession and protect patients from substandard care</div></div>
+          <div class="vs-item"><div class="vs-head" style="color:var(--red)">Do NOT have legal authority</div><div class="vs-body">Codes of ethics are professional standards — NOT laws. Violation results in professional consequences (expulsion, censure) but NOT criminal prosecution or civil liability directly from the code itself</div></div>
+        </div>
+        <div style="font-size:13px;font-weight:600;color:var(--gray-700);margin-bottom:6px">Healthcare organizations with codes of ethics:</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px">
+          <span class="badge badge-teal" style="font-size:12px;padding:4px 12px">AAMA (Medical Assistants)</span>
+          <span class="badge badge-blue" style="font-size:12px;padding:4px 12px">AHIMA (Health Info Management)</span>
+          <span class="badge badge-indigo" style="font-size:12px;padding:4px 12px">AHA (Hospitals)</span>
+          <span class="badge badge-violet" style="font-size:12px;padding:4px 12px">AMA (Physicians)</span>
+          <span class="badge badge-amber" style="font-size:12px;padding:4px 12px">ASRT (Radiologic Technologists)</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color:var(--teal)">AAMA Code of Ethics for Medical Assistants — Full Text</div>
+      <div class="tip teal" style="margin-bottom:12px">The Code of Ethics for Medical Assistants (American Association of Medical Assistants) contains five principles that define ethical professional conduct. These are commonly tested.</div>
+      <div style="display:flex;flex-direction:column;gap:3px;margin-bottom:12px">
+        <div class="code-row">
+          <div class="code-num">1</div>
+          <div class="code-text"><strong>Render service with full respect for the dignity of humanity</strong> — treat every patient as an individual deserving of compassion, respect, and quality care regardless of race, religion, national origin, sex, disability, or any other characteristic</div>
+        </div>
+        <div class="code-row">
+          <div class="code-num">2</div>
+          <div class="code-text"><strong>Respect confidential information obtained through employment</strong> — maintain patient privacy and confidentiality; do not disclose information learned in the course of patient care without authorization; HIPAA compliance is the legal counterpart to this ethical obligation</div>
+        </div>
+        <div class="code-row">
+          <div class="code-num">3</div>
+          <div class="code-text"><strong>Uphold the honor and high principles of the profession and accept its disciplines</strong> — represent the profession positively; follow professional standards; accept the consequences of ethical violations if they occur</div>
+        </div>
+        <div class="code-row">
+          <div class="code-num">4</div>
+          <div class="code-text"><strong>Seek to continually improve the knowledge and skills of medical assistants</strong> — pursue ongoing professional development; maintain competency through continuing education; stay current with evolving standards and technologies</div>
+        </div>
+        <div class="code-row">
+          <div class="code-num">5</div>
+          <div class="code-text"><strong>Participate in additional service activities aimed at improving the health of the community</strong> — extend professional service beyond the workplace into the broader community; contribute to public health and health education</div>
+        </div>
+      </div>
+      <div class="tip indigo">Source: American Association of Medical Assistants (AAMA) — www.aama-ntl.org. Note that the code establishes positive obligations ("render," "respect," "uphold," "seek," "participate") — it describes what medical assistants MUST do, not just what they must avoid.</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color:var(--indigo)">Hippocratic Oath — Key Principles</div>
+      <div class="tip indigo" style="margin-bottom:12px">The original Hippocratic Oath (ancient Greek text) established several ethical principles that remain foundational in modern medical ethics. Key commitments include:</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="vs-item"><div class="vs-head" style="color:var(--indigo)">Benefit the patient</div><div class="vs-body">"I will follow that method of treatment which, according to my ability and judgment, I consider for the benefit of my patients." Patient welfare is the primary obligation.</div></div>
+        <div class="vs-item"><div class="vs-head" style="color:var(--red)">Do no harm</div><div class="vs-body">"Abstain from whatever is deleterious and mischievous." The principle of non-maleficence — avoid actions that harm patients. Basis of the principle <em>primum non nocere</em> ("First, do no harm").</div></div>
+        <div class="vs-item"><div class="vs-head" style="color:var(--violet)">Refuse to assist with harmful acts</div><div class="vs-body">"I will give no deadly medicine to anyone if asked." Refusal to participate in euthanasia. Historical basis for modern debates about physician-assisted suicide.</div></div>
+        <div class="vs-item"><div class="vs-head" style="color:var(--blue)">Maintain confidentiality</div><div class="vs-body">"Whatever I may see or hear in the lives of men which ought not to be spoken abroad, I will not divulge." The earliest articulation of patient confidentiality — precursor to HIPAA.</div></div>
+        <div class="vs-item"><div class="vs-head" style="color:var(--green)">Enter only for patient benefit</div><div class="vs-body">"Into whatever houses I enter I will go into them for the benefit of the sick." The physician's sole purpose in the clinical relationship is patient welfare.</div></div>
+        <div class="vs-item"><div class="vs-head" style="color:var(--amber)">Act with purity and holiness</div><div class="vs-body">"With purity and holiness, I will pass my life and practice my art." The practitioner's entire life — not just clinical hours — should reflect professional values.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ SUCCESS QUALITIES ════════ -->
+  <div class="section" id="sec-success">
+    <div class="card">
+      <div class="card-title" style="color:var(--green)">Qualities for Success in Healthcare Careers</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+        <div class="qual-card">
+          <div class="qual-icon">🙏</div>
+          <div class="qual-title" style="color:var(--teal)">Courtesy</div>
+          <div class="qual-body">The practice of good manners. In healthcare, courtesy creates a therapeutic environment that reduces patient anxiety and builds trust. Greet patients by name, maintain eye contact, knock before entering a room, and acknowledge patients who are waiting.</div>
+        </div>
+        <div class="qual-card">
+          <div class="qual-icon">❤️</div>
+          <div class="qual-title" style="color:var(--rose)">Compassion</div>
+          <div class="qual-body">Empathy — the ability to understand and share the feelings of another. Compassion motivates practitioners to go beyond technical competence to address patients' emotional and psychological needs. Patients remember how you made them feel.</div>
+        </div>
+        <div class="qual-card">
+          <div class="qual-icon">💡</div>
+          <div class="qual-title" style="color:var(--amber)">Common sense</div>
+          <div class="qual-body">Sound practical judgment. The ability to recognize what is appropriate in a given situation without needing a rule for every scenario. Knowing when to ask for help, how to prioritize tasks, and how to respond calmly in unexpected situations.</div>
+        </div>
+        <div class="qual-card">
+          <div class="qual-icon">🤝</div>
+          <div class="qual-title" style="color:var(--blue)">People skills</div>
+          <div class="qual-body">Traits and capabilities that allow you to get along well with others — colleagues, patients, families, and supervisors. Includes communication, active listening, conflict resolution, teamwork, and cultural sensitivity. Often called "soft skills" but arguably the most important skills in healthcare.</div>
+        </div>
+        <div class="qual-card">
+          <div class="qual-icon">🔬</div>
+          <div class="qual-title" style="color:var(--indigo)">Technical skills</div>
+          <div class="qual-body">Abilities acquired in the course of study — clinical procedures, equipment operation, documentation, pharmacology, anatomy, and all the specialized knowledge and manual skills required for competent practice. Technical competence is the foundation of patient safety.</div>
+        </div>
+        <div class="qual-card">
+          <div class="qual-icon">🧠</div>
+          <div class="qual-title" style="color:var(--violet)">Critical thinking skills</div>
+          <div class="qual-body">Problem-solving skills — the ability to analyze information, evaluate evidence, consider alternatives, and make sound decisions. In healthcare, critical thinking is essential for recognizing deteriorating patients, identifying errors, and choosing the right course of action under pressure.</div>
+        </div>
+      </div>
+      <div class="tip green"><strong>Integration:</strong> These six qualities work together. Technical skills without compassion produces technically correct but cold care. Compassion without technical skills is well-intentioned but unsafe. Critical thinking without people skills produces the right solution delivered badly. Excellence requires all six.</div>
+    </div>
+  </div>
+
+  <!-- ════════ CRITICAL THINKING ════════ -->
+  <div class="section" id="sec-critical">
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title" style="color:var(--violet)">The Critical Thinking / Problem-Solving Process</div>
+        <div class="tip violet" style="margin-bottom:14px">Critical thinking is a systematic, disciplined process of evaluating information and reasoning to reach a well-justified conclusion. In healthcare, applying this process protects patients and practitioners.</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div class="step-card" style="background:var(--teal-lt);color:var(--teal-dk)">
+            <div class="step-num" style="background:var(--teal)">1</div>
+            <div><div class="step-title">Identify and clarify the problem</div><div class="step-body">Define what the actual issue is — not the symptom, but the root cause. Ask: "What specifically is wrong?" and "What outcome do we need?" In healthcare: Is this an ethical dilemma? A legal question? A clinical problem? Clarity at step 1 prevents wasted effort.</div></div>
+          </div>
+          <div class="step-card" style="background:var(--blue-lt);color:var(--blue-dk)">
+            <div class="step-num" style="background:var(--blue)">2</div>
+            <div><div class="step-title">Gather information</div><div class="step-body">Collect all relevant facts, data, policies, laws, and perspectives. In healthcare: What does the chart say? What is the patient's stated preference? What does the policy require? What does the law say? Do not rush to judgment before gathering complete information.</div></div>
+          </div>
+          <div class="step-card" style="background:var(--green-lt);color:var(--green-dk)">
+            <div class="step-num" style="background:var(--green)">3</div>
+            <div><div class="step-title">Evaluate the evidence</div><div class="step-body">Assess the quality and reliability of information gathered. Consider: Is this source credible? Is this information current? Does it apply to this specific situation? Distinguish facts from opinions, and evidence from assumptions.</div></div>
+          </div>
+          <div class="step-card" style="background:var(--amber-lt);color:var(--amber-dk)">
+            <div class="step-num" style="background:var(--amber)">4</div>
+            <div><div class="step-title">Consider alternatives and implications</div><div class="step-body">Generate possible courses of action and think through the consequences of each. Who will be affected? What are the legal implications? What are the ethical implications? What are the practical constraints? Play out each scenario before committing.</div></div>
+          </div>
+          <div class="step-card" style="background:var(--violet-lt);color:var(--violet-dk)">
+            <div class="step-num" style="background:var(--violet)">5</div>
+            <div><div class="step-title">Choose and implement the best alternative</div><div class="step-body">Select the option that best serves the patient, complies with law and ethics, and is practically achievable. Then ACT — implement decisively, document appropriately, and monitor results. Be prepared to adjust if outcomes are not as expected.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--indigo)">Determining If a Decision Is Ethical — 5 Self-Check Questions</div>
+        <div class="tip indigo" style="margin-bottom:14px">Before taking an action in a gray area, ask yourself these five questions. If you cannot answer "yes" (or feel comfortable) with all of them, reconsider your choice.</div>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div class="check-row">
+            <div class="check-q">1</div>
+            <div class="check-text"><strong>Will you have followed both the law AND your organization's policies?</strong> — Ethical action starts with legal and policy compliance. If your planned action violates either, it is not ethical regardless of your intentions. This is the baseline test.</div>
+          </div>
+          <div class="check-row">
+            <div class="check-q">2</div>
+            <div class="check-text"><strong>Will you promote a win-win situation as best as possible?</strong> — Ethical decisions in healthcare strive for outcomes that benefit all parties — patient, provider, and organization. If your decision clearly benefits you at the patient's expense (or vice versa), that's a red flag.</div>
+          </div>
+          <div class="check-row">
+            <div class="check-q">3</div>
+            <div class="check-text"><strong>How would you react if this act were publicized in the newspaper or other media?</strong> — The "newspaper test." If you would be embarrassed, defensive, or alarmed to see your action reported publicly, reconsider. Ethical actions hold up to public scrutiny.</div>
+          </div>
+          <div class="check-row">
+            <div class="check-q">4</div>
+            <div class="check-text"><strong>Would you want your family members to know?</strong> — A more personal version of the newspaper test. If you would be ashamed for your family to know what you did, that shame is a moral signal worth heeding. Professional pride and personal integrity should align.</div>
+          </div>
+          <div class="check-row">
+            <div class="check-q">5</div>
+            <div class="check-text"><strong>Can you look at yourself in a mirror?</strong> — The integrity test. Can you honestly tell yourself that you did the right thing? Your own conscience — informed by your moral values and professional ethics — is a critical check. If you have to rationalize extensively, the action is probably questionable.</div>
+          </div>
+        </div>
+        <div class="tip amber" style="margin-top:12px"><strong>Practical application:</strong> Use these five questions whenever you face an ethically ambiguous situation — a patient request that feels uncomfortable, a supervisor instruction that seems wrong, a shortcut that seems harmless. If any question gives you pause, investigate further before acting.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ FLASHCARDS ════════ -->
+  <div class="section" id="sec-flashcards">
+    <button class="fc-shuffle" onclick="shuffleCards()">⇄ Shuffle cards</button>
+    <div class="fc-nav">
+      <button class="fc-btn" onclick="prevCard()">&#8592;</button>
+      <div class="fc-counter" id="fc-counter">1 / 20</div>
+      <button class="fc-btn" onclick="nextCard()">&#8594;</button>
+    </div>
+    <div class="flip-wrap" onclick="flipCard()">
+      <div class="flip-inner" id="fc-inner">
+        <div class="flip-front"><div class="flip-term" id="fc-term">Law</div><div class="flip-hint">click to reveal</div></div>
+        <div class="flip-back"><div class="flip-def" id="fc-def">A rule of conduct formally recognized as binding by a controlling authority; enforced through penalties (fines, imprisonment, license revocation)</div><div class="flip-ex" id="fc-ex">Sets the MINIMUM standard to keep society functioning; does not demand ethical excellence — only baseline compliance</div></div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--gray-400);text-align:center;margin-top:10px">Click to flip · Arrows to navigate</div>
+  </div>
+
+  <!-- ════════ QUIZ ════════ -->
+  <div class="section" id="sec-quiz">
+    <div class="card" id="quiz-card">
+      <div class="quiz-progress" id="quiz-dots"></div>
+      <div class="quiz-q-text" id="quiz-q"></div>
+      <div class="quiz-opts" id="quiz-opts"></div>
+      <div id="quiz-fb" style="display:none"></div>
+      <button class="quiz-next" id="quiz-next" onclick="nextQ()" style="display:none">Next question →</button>
+    </div>
+  </div>
+
+</div>
+<script>
+const SECS=['overview','definitions','litigation','codes','success','critical','flashcards','quiz'];
+const visited=new Set(['overview']);
+function showSec(id,btn){
+  SECS.forEach(s=>document.getElementById('sec-'+s).classList.remove('active'));
+  document.querySelectorAll('.nav-row .tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active'); btn.classList.add('active');
+  visited.add(id);
+  const pct=Math.round((visited.size/SECS.length)*100);
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('prog-label').textContent=pct+'%';
+  if(id==='flashcards') renderCard();
+  if(id==='quiz'&&!quizStarted) startQuiz();
+}
+
+let allCards=[
+  {term:'Law',def:'A rule of conduct formally recognized as binding by a controlling authority; enforced through penalties (fines, imprisonment, license revocation)',ex:'Sets the MINIMUM standard to keep society functioning; legal ≠ ethical — a practitioner can act legally but unethically'},
+  {term:'Ethics',def:'Standards of behavior and the concept of right and wrong, built on moral values formed through family, culture, and society',ex:'Goes ABOVE the legal minimum toward ideals; violation = professional consequences, not criminal prosecution directly from the code'},
+  {term:'Moral values',def:'Beliefs formed through the influence of family, culture, and society; serve as the foundation for personal ethical conduct',ex:'Personal — not professionally established; basis for forming a personal code of ethics; violation causes interpersonal difficulty'},
+  {term:'Bioethics',def:'The discipline dealing with ethical implications of biological research and medicine; bioethicists consult with medical teams on difficult decisions',ex:'End-of-life care, genetic engineering, organ allocation, experimental treatment, stem cell research — all require bioethical analysis'},
+  {term:'Etiquette',def:'Standards of behavior considered good manners; enables one to get along with others',ex:'Professional courtesy — greeting patients, maintaining eye contact, using proper titles. Violation = ostracism or social disapproval'},
+  {term:'Protocol',def:'Standard rules of etiquette applied to one\'s specific workplace; enables professional interaction within that employment context',ex:'Office dress code, how to answer the phone, patient check-in procedures. Violation = professional disapproval or loss of business'},
+  {term:'Plaintiff',def:'The person bringing charges in a lawsuit; the party who claims to have been harmed',ex:'In medical malpractice, usually the patient or their estate; the plaintiff must prove all elements of negligence'},
+  {term:'Defendant',def:'The person against whom charges are brought in a lawsuit; the party being sued',ex:'In medical malpractice, usually the healthcare provider, facility, or manufacturer; can be multiple defendants'},
+  {term:'Liable',def:'Legally responsible or obligated; found by a court to be responsible for harm',ex:'A liable party may be ordered to pay damages; in healthcare, also includes license revocation'},
+  {term:'Precedent (case law)',def:'Decisions made by judges in various courts that become the rule of law and apply to future similar cases; also called common law',ex:'Stare decisis — "let the decision stand"; lower courts must follow precedent set by higher courts in the same jurisdiction'},
+  {term:'Summary judgment',def:'A court decision that there is no genuine dispute of material fact and the case does not need to go to trial',ex:'Granted when evidence is so one-sided no reasonable jury could decide differently; ends the case without full trial'},
+  {term:'Product liability — 4 types',def:'Breach of warranty · Untrue statements · Defective products · Fraud (intentional deceit)',ex:'Manufacturers, dealers, and sellers can all face product liability; distinct from medical malpractice (which applies to practitioners)'},
+  {term:'Federal preemption',def:'The doctrine that can bar injured consumers from suing in state court when the products that hurt them met federal standards',ex:'Medtronic (2008): FDA approval shields device makers from state tort claims. Wyeth v. Levine (2009): FDA label approval does NOT preempt state drug failure-to-warn claims'},
+  {term:'Litigious society',def:'A society in which people are inclined to seek legal remedies and file lawsuits; characteristic of contemporary U.S. healthcare',ex:'Patients, relatives, and others will sue practitioners, facilities, and manufacturers when medical outcomes are unacceptable — practitioners must understand their legal exposure'},
+  {term:'Contemporary codes of ethics — 4 characteristics',def:'Established by professional organization · Govern member behavior · Increase competence and standards · Do NOT have legal authority',ex:'AAMA, AMA, AHIMA, AHA, ASRT all have codes; violation results in professional consequences, not prosecution'},
+  {term:'AAMA Code of Ethics — 5 principles',def:'Dignity of humanity · Confidentiality · Uphold professional honor · Continual improvement · Community service',ex:'All five are POSITIVE obligations (render, respect, uphold, seek, participate) — not merely prohibitions'},
+  {term:'Ethics committee',def:'A hospital-based committee that determines possible solutions to difficult healthcare ethical issues',ex:'Members: physicians, nurses, social workers, clergy, family members, community members; addresses end-of-life, resource allocation, and other complex dilemmas'},
+  {term:'Critical thinking — 5 steps',def:'1. Identify/clarify problem → 2. Gather information → 3. Evaluate evidence → 4. Consider alternatives → 5. Choose and implement best alternative',ex:'Systematic process for making sound decisions; applies to clinical, ethical, and legal problems in healthcare'},
+  {term:'5 questions to determine if a decision is ethical',def:'Follow law/policy? Win-win? Newspaper test? Family test? Mirror test?',ex:'All five should yield "yes" or comfort; if any gives pause, investigate further before acting'},
+  {term:'6 qualities for healthcare success',def:'Courtesy · Compassion · Common sense · People skills · Technical skills · Critical thinking',ex:'All six work together; technical skills without compassion = cold care; compassion without technical skills = unsafe care'},
+];
+let fcIdx=0,fcFlipped=false;
+function renderCard(){
+  const c=allCards[fcIdx];
+  document.getElementById('fc-term').textContent=c.term;
+  document.getElementById('fc-def').textContent=c.def;
+  document.getElementById('fc-ex').textContent=c.ex;
+  document.getElementById('fc-counter').textContent=(fcIdx+1)+' / '+allCards.length;
+  document.getElementById('fc-inner').classList.remove('flipped'); fcFlipped=false;
+}
+function flipCard(){ fcFlipped=!fcFlipped; document.getElementById('fc-inner').classList.toggle('flipped',fcFlipped); }
+function nextCard(){ fcIdx=(fcIdx+1)%allCards.length; renderCard(); }
+function prevCard(){ fcIdx=(fcIdx-1+allCards.length)%allCards.length; renderCard(); }
+function shuffleCards(){
+  for(let i=allCards.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [allCards[i],allCards[j]]=[allCards[j],allCards[i]]; }
+  fcIdx=0; renderCard();
+}
+
+const QUIZ=[
+  {q:'Which of the following BEST describes the relationship between law and ethics?',ans:'Law sets the minimum standard required by society; ethics goes above the legal minimum toward ideals of good professional conduct',opts:['Law and ethics are essentially the same — both are enforced through criminal penalties','Ethics sets higher standards than law; violating a code of ethics results in professional consequences, not criminal prosecution from the code itself','Law and ethics are the same — both are enforced through criminal penalties','Law sets the minimum standard required by society; ethics goes above the legal minimum toward ideals of good professional conduct']},
+  {q:'The doctrine of precedent (stare decisis) means:',ans:'Court decisions become the rule of law and apply to future cases with similar facts; lower courts must follow decisions of higher courts',opts:['Judges must always follow the most recent federal statute regardless of prior rulings','Court decisions become the rule of law and apply to future cases with similar facts; lower courts must follow decisions of higher courts','Only the U.S. Supreme Court can create binding precedents applicable to all courts','Plaintiffs can always challenge previous court decisions by filing a new lawsuit'],},
+  {q:'In the context of the comparison table (Table 1-2), what is the MAIN PURPOSE of ethics?',ans:'To elevate the standard of competence within a profession above the legal minimum',opts:['To protect the public by enforcing compulsory minimum standards','To enable practitioners to get along with others in the workplace','To elevate the standard of competence within a profession above the legal minimum','To establish rules of etiquette applicable to a specific place of employment']},
+  {q:'Contemporary professional codes of ethics share which of the following characteristics?',ans:'They are established by professional organizations, govern member behavior, increase standards, but do NOT carry legal authority',opts:['They are legally binding on all practitioners in a profession whether or not they are members of the organization','They carry the same legal weight as statutes and can result in criminal prosecution for violation','They are established by professional organizations, govern member behavior, increase standards, but do NOT carry legal authority','They are enforced by government agencies such as OSHA and the FDA'],},
+  {q:'The Hippocratic Oath\'s principle "I will not divulge" that which should be kept secret is the earliest statement of:',ans:'Patient confidentiality — the precursor to modern laws such as HIPAA',opts:['The legal doctrine of informed consent requiring patients to authorize treatment','The duty to report communicable diseases to public health authorities','Patient confidentiality — the precursor to modern laws such as HIPAA','The prohibition against practicing medicine outside one\'s scope of competence'],},
+  {q:'In the critical thinking problem-solving model, what should a practitioner do BEFORE choosing and implementing a solution?',ans:'Identify the problem, gather information, evaluate evidence, AND consider alternatives and their implications',opts:['Immediately implement the most obvious solution to save time in urgent situations','Consult legal counsel before taking any action to protect against liability','Identify the problem, gather information, evaluate evidence, AND consider alternatives and their implications','Obtain written consent from the patient before making any clinical decision'],},
+  {q:'Product liability in healthcare can arise from which of the following?',ans:'Breach of warranty, untrue statements, defective products, and fraud',opts:['Only from intentional fraud by manufacturers — negligence alone is insufficient for product liability claims','Only from physical defects in the product — labeling and marketing claims are not covered','Breach of warranty, untrue statements, defective products, and fraud','Only from the actions of the healthcare practitioner who used the defective product on the patient'],},
+  {q:'The Wyeth v. Levine (2009) Supreme Court case established that:',ans:'Federal drug labeling approval (FDA) does NOT automatically preempt state failure-to-warn lawsuits against pharmaceutical companies',opts:['All medical devices approved by the FDA are completely immune from state tort claims','Federal drug labeling approval (FDA) does NOT automatically preempt state failure-to-warn lawsuits against pharmaceutical companies','Pharmaceutical companies cannot be sued by individual patients — only by state attorneys general','Drug manufacturers are liable only when they intentionally mislead the FDA about safety data'],},
+  {q:'Which of the "5 questions to determine if a decision is ethical" is commonly called the "newspaper test"?',ans:'"How would you react if this act were publicized in the newspaper or other media?"',opts:['"Will you have followed both the law and your organization\'s policies?"','"Will you promote a win-win situation as best as possible?"','"How would you react if this act were publicized in the newspaper or other media?"','"Can you look at yourself in a mirror?"'],},
+  {q:'A healthcare practitioner is asked by their supervisor to bill a patient for a service that was not actually performed. Applying the critical thinking ethical decision framework, the FIRST step should be:',ans:'Identify and clarify the problem: recognize that this constitutes healthcare fraud — illegal under federal law and unethical under professional codes',opts:['Immediately report the supervisor to law enforcement to avoid personal liability','Complete the billing as instructed since following supervisor orders protects from personal liability','Gather information about what billing code would minimize the legal risk before proceeding','Identify and clarify the problem: recognize that this constitutes healthcare fraud — illegal under federal law and unethical under professional codes'],},
+];
+let qIdx=0,score=0,results=[],quizStarted=false;
+function startQuiz(){ quizStarted=true; qIdx=0; score=0; results=[]; renderQ(); }
+function renderQ(){
+  const q=QUIZ[qIdx];
+  document.getElementById('quiz-dots').innerHTML=QUIZ.map((_,i)=>`<div class="q-dot ${i<results.length?(results[i]?'pass':'fail'):''}" title="Q${i+1}"></div>`).join('');
+  document.getElementById('quiz-q').textContent=(qIdx+1)+'. '+q.q;
+  document.getElementById('quiz-opts').innerHTML=q.opts.map(o=>`<button class="q-opt" onclick="checkAns(this,'${o.replace(/'/g,"\\'")}','${q.ans.replace(/'/g,"\\'")}')">${o}</button>`).join('');
+  const fb=document.getElementById('quiz-fb'); fb.style.display='none'; fb.className='q-fb';
+  document.getElementById('quiz-next').style.display='none';
+}
+function checkAns(btn,chosen,correct){
+  document.querySelectorAll('.q-opt').forEach(b=>{ b.disabled=true; if(b.textContent===correct) b.classList.add('correct'); });
+  const ok=chosen===correct;
+  if(ok){ score++; btn.classList.add('correct'); } else btn.classList.add('wrong');
+  results.push(ok);
+  document.getElementById('quiz-dots').innerHTML=QUIZ.map((_,i)=>`<div class="q-dot ${i<results.length?(results[i]?'pass':'fail'):''}" title="Q${i+1}"></div>`).join('');
+  const fb=document.getElementById('quiz-fb');
+  fb.style.display='block'; fb.className='q-fb '+(ok?'correct':'wrong');
+  fb.textContent=ok?'✓ Correct!':`✗ Correct answer: ${correct}`;
+  const nxt=document.getElementById('quiz-next');
+  nxt.style.display='inline-block';
+  nxt.textContent=qIdx===QUIZ.length-1?'See results':'Next question →';
+}
+function nextQ(){ qIdx++; if(qIdx>=QUIZ.length){ showScore(); return; } renderQ(); }
+function showScore(){
+  const pct=Math.round((score/QUIZ.length)*100);
+  const cls=pct>=80?'great':pct>=60?'ok':'retry';
+  const msg=pct>=90?'Excellent! Chapter 1 mastered.':pct>=70?'Good work! Review the definitions and codes sections.':'Keep studying — revisit Law vs. Ethics, Codes of Ethics, and Critical Thinking.';
+  document.getElementById('quiz-card').innerHTML=`<div class="score-wrap"><div class="score-big ${cls}">${score}/${QUIZ.length}</div><div style="font-size:13px;color:var(--gray-400);margin-top:4px">${pct}%</div><div class="score-msg">${msg}</div><button class="retry-btn" onclick="retakeQuiz()">Retake quiz</button></div>`;
+}
+function retakeQuiz(){
+  document.getElementById('quiz-card').innerHTML=`<div class="quiz-progress" id="quiz-dots"></div><div class="quiz-q-text" id="quiz-q"></div><div class="quiz-opts" id="quiz-opts"></div><div id="quiz-fb" style="display:none"></div><button class="quiz-next" id="quiz-next" onclick="nextQ()" style="display:none">Next question →</button>`;
+  qIdx=0; score=0; results=[]; renderQ();
+}
+</script>
+</body>
+</html>
